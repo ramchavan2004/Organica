@@ -1,3 +1,4 @@
+ 
 <div align="center">
   
   ![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/organica)
@@ -13,7 +14,7 @@
 
   Organica is a fully responsive organic ecommerce website, <br />Responsive for all devices, build using HTML, CSS, and JavaScript.
 
-  <a href="https://codewithsadee.github.io/organica/"><strong>➥ Live Demo</strong></a>
+  <a href="https://ramchavan2004.github.io/organica/"><strong>➥ Live Demo</strong></a>
 
 </div>
 
@@ -36,19 +37,22 @@ To run **Organica** locally, run this command on your git bash:
 Linux and macOS:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/organica.git
+sudo git clone https://github.com/ramchavan2004/Organica.git
 ```
 
 Windows:
 
 ```bash
-git clone https://github.com/codewithsadee/organica.git
+git clone https://github.com/ramchavan2004/Organica.git
 ```
 
 ### Contact
 
-If you want to contact with me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+If you want to contact with me you can reach me at [LinkedIn](https://www.linkedin.com/in/ram-chavan-2a9104385/).
 
 ### License
 
 This project is **free to use** and does not contains any license.
+
+ 
+ 
