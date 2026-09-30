@@ -4,7 +4,7 @@ Organica - Quality organic fruit & vegetables.
 
 #---------- HEADER ----------#
 
-Free shipping for all order of $105
+Free shipping for all order of Rs.105
 
 Organica
 
@@ -49,19 +49,19 @@ aria-label = Close whishlist
 alt = Bright Side Vegetarian
 
 Bright Side Vegetarian
-$20.15x1
+Rs.20.15x1
 
 aria-label = Remove item
 <ion-icon name="close-outline"></ion-icon>
 
 Eco Vegetable
-$13.25x2
+Rs.13.25x2
 
 House of Veggies
-$20.15x1
+Rs.20.15x1
 
 Subtotal:
-$215.14
+Rs.215.14
 
 View Whishlist
 
@@ -141,8 +141,8 @@ Quick View
 <ion-icon name="star"></ion-icon>
     
 Fresh Orangey
-$75.00
-$85.00
+Rs.75.00
+Rs.85.00
 Add to Cart
 
 key Lime
@@ -193,8 +193,8 @@ Quick View
 <ion-icon name="star"></ion-icon>
 
 Fresh Orangey
-$75.00
-$85.00
+Rs.75.00
+Rs.85.00
 
 Add to Cart
 

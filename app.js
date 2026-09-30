@@ -154,7 +154,7 @@ class SkillConnectApp {
 
     navigateTo(viewId, updateHash = true) {
         document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
-        const targetView = document.getElementById(`${viewId}-view`);
+        const targetView = document.getElementById(`Rs.{viewId}-view`);
         if (targetView) targetView.classList.add('active');
 
         document.querySelectorAll('.nav-item').forEach(nav => {
@@ -172,40 +172,40 @@ class SkillConnectApp {
         const isWishlisted = this.wishlist.has(mentor.id);
         return `
             <div class="mentor-card">
-                <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="app.toggleWishlist('${mentor.id}')" title="Save Mentor">
-                    <i class="fa-${isWishlisted ? 'solid' : 'regular'} fa-heart"></i>
+                <button class="wishlist-btn Rs.{isWishlisted ? 'active' : ''}" onclick="app.toggleWishlist('Rs.{mentor.id}')" title="Save Mentor">
+                    <i class="fa-Rs.{isWishlisted ? 'solid' : 'regular'} fa-heart"></i>
                 </button>
 
                 <div class="mentor-header">
-                    <img src="${mentor.avatar}" alt="${mentor.name}" class="mentor-avatar">
+                    <img src="Rs.{mentor.avatar}" alt="Rs.{mentor.name}" class="mentor-avatar">
                     <div class="mentor-info">
-                        <h3>${mentor.name}</h3>
-                        <p class="mentor-title">${mentor.title}</p>
+                        <h3>Rs.{mentor.name}</h3>
+                        <p class="mentor-title">Rs.{mentor.title}</p>
                         <div class="mentor-rating">
                             <i class="fa-solid fa-star"></i>
-                            <span>${mentor.rating}</span>
-                            <span class="text-muted">(${mentor.reviewCount} reviews)</span>
+                            <span>Rs.{mentor.rating}</span>
+                            <span class="text-muted">(Rs.{mentor.reviewCount} reviews)</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="mentor-skills">
-                    ${mentor.skills.map(skill => `<span>${skill}</span>`).join('')}
+                    Rs.{mentor.skills.map(skill => `<span>Rs.{skill}</span>`).join('')}
                 </div>
 
                 <div class="mentor-meta">
-                    <div><i class="fa-solid fa-briefcase"></i> <strong>${mentor.experience} yrs</strong> exp</div>
-                    <div><i class="fa-solid fa-language"></i> <strong>${mentor.language}</strong></div>
-                    <div><i class="fa-solid fa-video"></i> <strong>${mentor.mode}</strong></div>
+                    <div><i class="fa-solid fa-briefcase"></i> <strong>Rs.{mentor.experience} yrs</strong> exp</div>
+                    <div><i class="fa-solid fa-language"></i> <strong>Rs.{mentor.language}</strong></div>
+                    <div><i class="fa-solid fa-video"></i> <strong>Rs.{mentor.mode}</strong></div>
                 </div>
 
                 <div class="mentor-footer">
-                    <div class="mentor-price">$${mentor.price} <span>/ hr</span></div>
+                    <div class="mentor-price">Rs.Rs.{mentor.price} <span>/ hr</span></div>
                     <div style="display: flex; gap: 0.35rem;">
-                        <button class="btn btn-outline btn-sm" onclick="app.openChatModal('${mentor.id}')" title="Chat Before Booking">
+                        <button class="btn btn-outline btn-sm" onclick="app.openChatModal('Rs.{mentor.id}')" title="Chat Before Booking">
                             <i class="fa-regular fa-comment"></i>
                         </button>
-                        <button class="btn btn-primary btn-sm" onclick="app.viewProfile('${mentor.id}')">View Profile</button>
+                        <button class="btn btn-primary btn-sm" onclick="app.viewProfile('Rs.{mentor.id}')">View Profile</button>
                     </div>
                 </div>
             </div>
@@ -279,8 +279,8 @@ class SkillConnectApp {
 
         if (!grid) return;
 
-        titleText.textContent = query ? `Search Results for "${query}"` : "All Mentors";
-        countText.textContent = `Showing ${results.length} verified available mentors`;
+        titleText.textContent = query ? `Search Results for "Rs.{query}"` : "All Mentors";
+        countText.textContent = `Showing Rs.{results.length} verified available mentors`;
 
         if (results.length === 0) {
             grid.innerHTML = '';
@@ -292,7 +292,7 @@ class SkillConnectApp {
     }
 
     updatePriceSliderLabel(val) {
-        document.getElementById('price-slider-value').textContent = `$${val}/hr`;
+        document.getElementById('price-slider-value').textContent = `Rs.Rs.{val}/hr`;
     }
 
     resetFilters() {
@@ -345,25 +345,25 @@ class SkillConnectApp {
                 <div class="profile-cover"></div>
                 <div class="profile-main-info">
                     <div class="profile-avatar-wrapper">
-                        <img src="${mentor.avatar}" alt="${mentor.name}">
+                        <img src="Rs.{mentor.avatar}" alt="Rs.{mentor.name}">
                     </div>
                     <div class="profile-actions">
-                        <button class="btn btn-outline" onclick="app.toggleWishlist('${mentor.id}')">
-                            <i class="fa-${isWishlisted ? 'solid' : 'regular'} fa-heart text-danger"></i> ${isWishlisted ? 'Saved' : 'Save'}
+                        <button class="btn btn-outline" onclick="app.toggleWishlist('Rs.{mentor.id}')">
+                            <i class="fa-Rs.{isWishlisted ? 'solid' : 'regular'} fa-heart text-danger"></i> Rs.{isWishlisted ? 'Saved' : 'Save'}
                         </button>
-                        <button class="btn btn-outline" onclick="app.openChatModal('${mentor.id}')">
+                        <button class="btn btn-outline" onclick="app.openChatModal('Rs.{mentor.id}')">
                             <i class="fa-regular fa-comment"></i> Direct Message
                         </button>
                     </div>
                 </div>
                 <div style="padding: 0 2rem 1.5rem;">
-                    <h2>${mentor.name} <i class="fa-solid fa-circle-check text-primary text-sm" title="Verified Mentor"></i></h2>
-                    <p class="text-muted">${mentor.title}</p>
+                    <h2>Rs.{mentor.name} <i class="fa-solid fa-circle-check text-primary text-sm" title="Verified Mentor"></i></h2>
+                    <p class="text-muted">Rs.{mentor.title}</p>
                     <div class="mentor-rating" style="margin-top: 0.5rem;">
                         <i class="fa-solid fa-star"></i>
-                        <span>${mentor.rating}</span>
-                        <span class="text-muted">(${mentor.reviewCount} student reviews)</span>
-                        <span class="badge badge-soft-success" style="margin-left: 1rem;">${mentor.studentsTaught}+ Sessions Taught</span>
+                        <span>Rs.{mentor.rating}</span>
+                        <span class="text-muted">(Rs.{mentor.reviewCount} student reviews)</span>
+                        <span class="badge badge-soft-success" style="margin-left: 1rem;">Rs.{mentor.studentsTaught}+ Sessions Taught</span>
                     </div>
                 </div>
             </div>
@@ -372,20 +372,20 @@ class SkillConnectApp {
                 <div>
                     <div class="profile-section-box">
                         <h3>About the Mentor</h3>
-                        <p>${mentor.bio}</p>
+                        <p>Rs.{mentor.bio}</p>
                     </div>
 
                     <div class="profile-section-box">
                         <h3>Skills & Expertise</h3>
                         <div class="mentor-skills">
-                            ${mentor.skills.map(s => `<span style="font-size: 0.875rem; padding: 0.3rem 0.75rem;">${s}</span>`).join('')}
+                            Rs.{mentor.skills.map(s => `<span style="font-size: 0.875rem; padding: 0.3rem 0.75rem;">Rs.{s}</span>`).join('')}
                         </div>
                     </div>
 
                     <div class="profile-section-box">
                         <h3>Certificates & Credentials</h3>
                         <ul style="list-style: disc; padding-left: 1.2rem;">
-                            ${mentor.certificates.map(c => `<li style="margin-bottom:0.5rem;">${c}</li>`).join('')}
+                            Rs.{mentor.certificates.map(c => `<li style="margin-bottom:0.5rem;">Rs.{c}</li>`).join('')}
                         </ul>
                     </div>
 
@@ -412,16 +412,16 @@ class SkillConnectApp {
                 <div>
                     <div class="booking-widget-card">
                         <span class="text-sm text-muted">Mentorship Rate</span>
-                        <div class="price-tag-big">$${mentor.price} <span style="font-size:1rem; font-weight:normal; color:var(--text-muted);">/ 1 Hr Session</span></div>
+                        <div class="price-tag-big">Rs.Rs.{mentor.price} <span style="font-size:1rem; font-weight:normal; color:var(--text-muted);">/ 1 Hr Session</span></div>
                         
                         <div style="margin: 1.25rem 0;">
                             <label class="filter-label">Select Available Slot</label>
                             <select id="profile-slot-select" class="form-group" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--radius-md);">
-                                ${mentor.availableSlots.map(slot => `<option value="${slot}">${slot}</option>`).join('')}
+                                Rs.{mentor.availableSlots.map(slot => `<option value="Rs.{slot}">Rs.{slot}</option>`).join('')}
                             </select>
                         </div>
 
-                        <button class="btn btn-primary btn-full btn-lg" onclick="app.openBookingModal('${mentor.id}')">
+                        <button class="btn btn-primary btn-full btn-lg" onclick="app.openBookingModal('Rs.{mentor.id}')">
                             <i class="fa-solid fa-calendar-check"></i> Book Session Now
                         </button>
 
@@ -490,17 +490,17 @@ class SkillConnectApp {
 
         body.innerHTML = `
             <div style="display:flex; gap:1rem; align-items:center; margin-bottom:1.5rem; background:var(--bg-body); padding:1rem; border-radius:var(--radius-md);">
-                <img src="${mentor.avatar}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+                <img src="Rs.{mentor.avatar}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
                 <div>
-                    <strong>${mentor.name}</strong>
-                    <p class="text-sm text-muted">${mentor.title}</p>
+                    <strong>Rs.{mentor.name}</strong>
+                    <p class="text-sm text-muted">Rs.{mentor.title}</p>
                 </div>
             </div>
 
-            <form onsubmit="app.handleConfirmBooking(event, '${mentor.id}')">
+            <form onsubmit="app.handleConfirmBooking(event, 'Rs.{mentor.id}')">
                 <div class="form-group" style="margin-bottom:1rem;">
                     <label>Selected Session Time</label>
-                    <input type="text" value="${selectedSlot}" readonly style="background:#f1f5f9;">
+                    <input type="text" value="Rs.{selectedSlot}" readonly style="background:#f1f5f9;">
                 </div>
 
                 <div class="form-group" style="margin-bottom:1rem;">
@@ -511,7 +511,7 @@ class SkillConnectApp {
                 <div style="border-top:1px solid var(--border-color); padding-top:1rem; margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
                     <div>
                         <span class="text-sm text-muted">Total Payment</span>
-                        <h3 class="text-primary">$${mentor.price}.00</h3>
+                        <h3 class="text-primary">Rs.Rs.{mentor.price}.00</h3>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg">Confirm & Reserve Slot</button>
                 </div>
@@ -560,15 +560,15 @@ class SkillConnectApp {
         container.innerHTML = this.bookings.map(bk => `
             <div class="booking-item-card">
                 <div style="display:flex; gap:1rem; align-items:center;">
-                    <img src="${bk.mentorAvatar}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+                    <img src="Rs.{bk.mentorAvatar}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
                     <div>
-                        <strong>${bk.mentorName}</strong>
-                        <p class="text-sm text-muted">${bk.mentorTitle}</p>
-                        <small class="badge badge-soft-primary" style="margin-top:0.25rem;"><i class="fa-regular fa-clock"></i> ${bk.slot}</small>
+                        <strong>Rs.{bk.mentorName}</strong>
+                        <p class="text-sm text-muted">Rs.{bk.mentorTitle}</p>
+                        <small class="badge badge-soft-primary" style="margin-top:0.25rem;"><i class="fa-regular fa-clock"></i> Rs.{bk.slot}</small>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-outline btn-sm" onclick="app.openChatModal('${bk.mentorId}')"><i class="fa-regular fa-comment"></i> Message</button>
+                    <button class="btn btn-outline btn-sm" onclick="app.openChatModal('Rs.{bk.mentorId}')"><i class="fa-regular fa-comment"></i> Message</button>
                     <button class="btn btn-primary btn-sm" onclick="app.showToast('Joining call room...', 'success')"><i class="fa-solid fa-video"></i> Join Meeting</button>
                 </div>
             </div>
@@ -580,8 +580,8 @@ class SkillConnectApp {
         document.querySelectorAll('.dash-tab').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.dash-tab-content').forEach(c => c.classList.remove('active'));
 
-        document.querySelector(`.dash-tab[data-tab="${tabId}"]`)?.classList.add('active');
-        document.getElementById(`tab-${tabId}`)?.classList.add('active');
+        document.querySelector(`.dash-tab[data-tab="Rs.{tabId}"]`)?.classList.add('active');
+        document.getElementById(`tab-Rs.{tabId}`)?.classList.add('active');
 
         if (tabId === 'wishlist') this.renderWishlistTab();
     }
@@ -595,9 +595,9 @@ class SkillConnectApp {
         const headerInfo = document.getElementById('chat-header-info');
         headerInfo.innerHTML = `
             <div style="display:flex; align-items:center; gap:0.75rem;">
-                <img src="${mentor.avatar}" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
+                <img src="Rs.{mentor.avatar}" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
                 <div>
-                    <strong>Chat with ${mentor.name}</strong>
+                    <strong>Chat with Rs.{mentor.name}</strong>
                     <p class="text-sm text-muted" style="margin:0;">Ask questions before booking</p>
                 </div>
             </div>
@@ -605,7 +605,7 @@ class SkillConnectApp {
 
         if (!this.chatHistory[mentorId]) {
             this.chatHistory[mentorId] = [
-                { sender: 'mentor', text: `Hi there! I'm ${mentor.name}. What questions do you have about my ${mentor.category} sessions?` }
+                { sender: 'mentor', text: `Hi there! I'm Rs.{mentor.name}. What questions do you have about my Rs.{mentor.category} sessions?` }
             ];
         }
 
@@ -618,8 +618,8 @@ class SkillConnectApp {
         const msgs = this.chatHistory[mentorId] || [];
 
         container.innerHTML = msgs.map(m => `
-            <div class="chat-bubble ${m.sender === 'user' ? 'sent' : 'received'}">
-                ${m.text}
+            <div class="chat-bubble Rs.{m.sender === 'user' ? 'sent' : 'received'}">
+                Rs.{m.text}
             </div>
         `).join('');
 
@@ -706,10 +706,10 @@ class SkillConnectApp {
         if (!container) return;
 
         const toast = document.createElement('div');
-        toast.className = `toast ${type === 'success' ? 'success' : ''}`;
+        toast.className = `toast Rs.{type === 'success' ? 'success' : ''}`;
         toast.innerHTML = `
-            <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-info'}"></i>
-            <span>${message}</span>
+            <i class="fa-solid Rs.{type === 'success' ? 'fa-circle-check' : 'fa-circle-info'}"></i>
+            <span>Rs.{message}</span>
         `;
 
         container.appendChild(toast);
